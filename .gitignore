@@ -1,0 +1,17 @@
+# Compiled files
+*.o
+*.so
+*.rlib
+*.dll
+
+# Executables
+*.exe
+
+.DS_Store
+*.swp
+*.gz
+*.xz
+NDK/
+build/
+cargo/
+rustc-nightly/
