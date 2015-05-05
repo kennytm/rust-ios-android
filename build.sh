@@ -11,7 +11,7 @@ if [ ! -d NDK ]; then
 fi
 
 TODAY=$(date -ju "+%Y-%m-%d")
-URL="http://static.rust-lang.org/dist/$TODAY/rustc-nightly-src.tar.gz"
+URL="http://static.rust-lang.org/dist/rustc-nightly-src.tar.gz"
 
 printf '\e[32;1mDownloading rustc nightly...\e[0m ('$URL')\n'
 
@@ -63,9 +63,7 @@ if [ ! -f config.mk ]; then
             --disable-llvm-assertions \
             --enable-fast-make \
             --enable-ccache \
-            --enable-nightly \
             --android-cross-path="$ROOT/NDK" \
-            --disable-verify-install \
             --disable-jemalloc \
             --enable-clang
 fi
@@ -79,10 +77,11 @@ cd ../cargo
         --disable-cross-tests \
         --local-rust-root="$ROOT/build/x86_64-apple-darwin/stage2/"
 make
-cp ./target/x86_64-apple-darwin/cargo ../build/x86_64-apple-darwin/stage2/bin
+cp ./target/x86_64-apple-darwin/debug/cargo ../build/x86_64-apple-darwin/stage2/bin
 
 printf '\e[32;1mPackaging...\e[0m\n'
 
+cd ..
 tar cfJ "rust-ios-android-${TODAY}.tar.xz" build/x86_64-apple-darwin/stage2
 
 printf '\e[32;1mDone.\e[0m\n'
