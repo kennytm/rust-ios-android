@@ -1,6 +1,6 @@
 [target.arm-linux-androideabi]
-ar = "/....path-to..../rust-ios-android/NDK/bin/arm-linux-androideabi-ar"
-linker = "/....path-to..../rust-ios-android/NDK/bin/arm-linux-androideabi-gcc"
+ar = "$PWD/NDK/bin/arm-linux-androideabi-ar"
+linker = "$PWD/NDK/bin/arm-linux-androideabi-gcc"
 
 [target.i386-apple-ios]
 ar = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar"
