@@ -12,8 +12,8 @@ CUR_PATH = os.path.dirname(__file__)
 TARGETS = [
     (None, {}),
     ('arm-linux-androideabi', {
-        'AR': os.path.join(CUR_PATH, 'NDK/bin/arm-linux-androideabi-ar'),
-        'CC': os.path.join(CUR_PATH, 'NDK/bin/arm-linux-androideabi-gcc'),
+        'AR': os.path.join(CUR_PATH, 'NDK', 'bin', 'arm-linux-androideabi-ar'),
+        'CC': os.path.join(CUR_PATH, 'NDK', 'bin', 'arm-linux-androideabi-gcc'),
     }),
     ('i386-apple-ios', {
         'IPHONEOS_DEPLOYMENT_TARGET': '8.0',

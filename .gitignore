@@ -12,6 +12,7 @@
 *.gz
 *.xz
 NDK/
-build/
+build-*/
 cargo/
-rustc-nightly/
+rustc-*/
+cargo-config.toml

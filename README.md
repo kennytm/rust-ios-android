@@ -1,7 +1,7 @@
 rust-ios-android
 ================
 
-Example project for building static library for iOS + Android in Rust.
+Example project for building static library for iOS + Android in Rust. Mac OS X is required (because iOS).
 
 *Note: The purpose of this project is not to create a pure Rust app, but rather use Rust as a shared native component between the mobile platforms.*
 
@@ -16,7 +16,7 @@ Usage
 
 2. Get Xcode, and install the command line tools.
 
-3. Get Android NDK. We recommend installing it with [homebrew](http://brew.sh/).
+3. Get Android NDK r10e. We recommend installing it with [homebrew](http://brew.sh/).
 
     ```sh
     $ brew install android-ndk
@@ -34,25 +34,40 @@ Usage
     $ ./create-ndk-standalone.sh
     ```
 
-6. Build Rust and Cargo. It will automatically download the published nightly source of today (in UTC).
+6. Build Rust and Cargo. It will automatically download the latest published nightly source. You may also specify a version from the beta/stable channel. (This step is slow)
 
     ```sh
-    $ ./build.sh
+    $ ./build.py                # Build with latest published nightly
+
+    # -- or --
+
+    $ ./build.py 1.1.0-beta.2   # Build with a beta version
+
+    # -- or --
+
+    $ ./build.py 1.0.0          # Build with a stable version
     ```
 
 7. Register this new toolchain with `multirust`.
 
     ```sh
-    $ multirust update mobile --link-local ./build/x86_64-apple-darwin/stage2
+    $ multirust update mobile-nightly --link-local ./build-nightly/x86_64-apple-darwin/stage2
     ```
 
-8. Copy `cargo-config.toml` to `~/.cargo/config`, and edit the content so the linker and ar point to correct paths.
+8. Use `package.sh` to distribute the compiler as an `*.xz` package. (This step is slow and is optional)
 
-9. Whenever you want to run `cargo` on all targets, use the script `cargo-all-targets.py`, e.g.
+    ```sh
+    $ ./package.sh nightly
+    ```
+
+9. Copy the content of `cargo-config.toml` into `~/.cargo/config`.
+
+10. Whenever you want to run `cargo` on all targets, use the script `cargo-all-targets.py`, e.g.
 
     ```sh
     $ /...path-to.../rust-ios-android/cargo-all-targets.py build --release
     ```
 
-10. For iOS, use `ios-fat-lib.sh` to combine several `*.a` files into a fat static library.
+11. For iOS, use `ios-fat-lib.sh` to combine several `*.a` files into a fat static library.
+
 
