@@ -32,6 +32,13 @@ TARGETS = [
     }),
 ]
 
+def crate_type(target):
+    if target and 'android' in target:
+        return 'dylib'
+    else:
+        return 'staticlib'
+
+
 for target, env in TARGETS:
     print('\033[36;1m<<', target, '>>\033[0m')
 
@@ -40,6 +47,14 @@ for target, env in TARGETS:
 
     args = list(sys.argv)
     args[0] = 'cargo'
+
+    try:
+        if args[1] == 'build-lib':
+            args[1] = 'rustc'
+            args.extend(['--', '--crate-type', crate_type(target)])
+    except IndexError:
+        pass
+
     if target:
         args.insert(2, '--target=' + target)
 
