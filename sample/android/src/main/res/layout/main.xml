@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regex"
+        android:id="@+id/regexLabel"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="45dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        android:id="@+id/textLabel"
+        android:layout_below="@+id/regexLabel"
+        android:layout_alignLeft="@+id/regexLabel"
+        android:layout_alignStart="@+id/regexLabel"
+        android:layout_marginTop="45dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/regexField"
+        android:layout_alignBottom="@+id/regexLabel"
+        android:layout_toRightOf="@+id/regexLabel"
+        android:layout_marginLeft="35dp"
+        android:layout_marginStart="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="40dp"
+        android:layout_marginEnd="40dp"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textField"
+        android:layout_alignBottom="@+id/textLabel"
+        android:layout_alignLeft="@+id/regexField"
+        android:layout_alignStart="@+id/regexField"
+        android:layout_alignRight="@+id/regexField"
+        android:layout_alignEnd="@+id/regexField"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Check"
+        android:id="@+id/checkButton"
+        android:layout_below="@+id/textField"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:onClick="check"/>
+</RelativeLayout>

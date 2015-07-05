@@ -73,4 +73,28 @@ Usage
 
 11. For iOS, use `ios-fat-lib.sh` to combine several `*.a` files into a fat static library.
 
+Using the static library
+------------------------
 
+You use use the `sample/` project as an example. (Note that the sample itself does not contain proper error checking.)
+
+
+1. Write the library and expose a C interface. See [the FFI chapter in the Rust Book](http://doc.rust-lang.org/book/ffi.html) for an introduction.
+
+2. Expose the Java interface with JNI when `target_os="android"`.
+
+3. Build the library.
+
+    ```sh
+    $ ../../cargo-all-targets.py build-lib --release
+    ```
+
+4. Combine the iOS `*.a` into a fat library using `ios-fat-lib.sh`.
+
+    ```sh
+    $ ../../ios-fat-lib.sh release libsample
+    ```
+
+    Then drop the resulting `libsample-release.a` into the Xcode project.
+
+5. Drop the `target/arm-linux-androideabi/release/libsample.so` into the Android native library folder.

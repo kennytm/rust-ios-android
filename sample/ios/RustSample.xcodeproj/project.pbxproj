@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C5B509F1B494FD70034773C /* libsample-release.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5B509E1B494FD70034773C /* libsample-release.a */; };
+		9C5B50A71B4953010034773C /* RustRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B50A61B4953010034773C /* RustRegex.m */; };
+		9C7986881B4949900070BE80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7986871B4949900070BE80 /* AppDelegate.swift */; };
+		9C79868A1B4949900070BE80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7986891B4949900070BE80 /* ViewController.swift */; };
+		9C79868D1B4949900070BE80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C79868B1B4949900070BE80 /* Main.storyboard */; };
+		9C79869E1B4949910070BE80 /* RustSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79869D1B4949910070BE80 /* RustSampleTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C7986981B4949900070BE80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C79867A1B4949900070BE80 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C7986811B4949900070BE80;
+			remoteInfo = RustSample;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9C5B509E1B494FD70034773C /* libsample-release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libsample-release.a"; path = "../cargo/libsample-release.a"; sourceTree = "<group>"; };
+		9C5B50A11B4950E80034773C /* rust_regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rust_regex.h; path = ../cargo/src/rust_regex.h; sourceTree = "<group>"; };
+		9C5B50A31B4952A60034773C /* RustSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RustSample-Bridging-Header.h"; sourceTree = "<group>"; };
+		9C5B50A61B4953010034773C /* RustRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RustRegex.m; sourceTree = "<group>"; };
+		9C7986821B4949900070BE80 /* RustSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RustSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C7986861B4949900070BE80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C7986871B4949900070BE80 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9C7986891B4949900070BE80 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9C79868C1B4949900070BE80 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9C7986971B4949900070BE80 /* RustSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RustSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C79869C1B4949910070BE80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C79869D1B4949910070BE80 /* RustSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustSampleTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C79867F1B4949900070BE80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C5B509F1B494FD70034773C /* libsample-release.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C7986941B4949900070BE80 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9C7986791B4949900070BE80 = {
+			isa = PBXGroup;
+			children = (
+				9C5B50A31B4952A60034773C /* RustSample-Bridging-Header.h */,
+				9C5B50A11B4950E80034773C /* rust_regex.h */,
+				9C5B509E1B494FD70034773C /* libsample-release.a */,
+				9C7986841B4949900070BE80 /* RustSample */,
+				9C79869A1B4949900070BE80 /* RustSampleTests */,
+				9C7986831B4949900070BE80 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9C7986831B4949900070BE80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C7986821B4949900070BE80 /* RustSample.app */,
+				9C7986971B4949900070BE80 /* RustSampleTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C7986841B4949900070BE80 /* RustSample */ = {
+			isa = PBXGroup;
+			children = (
+				9C5B50A61B4953010034773C /* RustRegex.m */,
+				9C7986871B4949900070BE80 /* AppDelegate.swift */,
+				9C7986891B4949900070BE80 /* ViewController.swift */,
+				9C79868B1B4949900070BE80 /* Main.storyboard */,
+				9C7986851B4949900070BE80 /* Supporting Files */,
+			);
+			path = RustSample;
+			sourceTree = "<group>";
+		};
+		9C7986851B4949900070BE80 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C7986861B4949900070BE80 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C79869A1B4949900070BE80 /* RustSampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C79869D1B4949910070BE80 /* RustSampleTests.swift */,
+				9C79869B1B4949910070BE80 /* Supporting Files */,
+			);
+			path = RustSampleTests;
+			sourceTree = "<group>";
+		};
+		9C79869B1B4949910070BE80 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C79869C1B4949910070BE80 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C7986811B4949900070BE80 /* RustSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C7986A11B4949910070BE80 /* Build configuration list for PBXNativeTarget "RustSample" */;
+			buildPhases = (
+				9C79867E1B4949900070BE80 /* Sources */,
+				9C79867F1B4949900070BE80 /* Frameworks */,
+				9C7986801B4949900070BE80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RustSample;
+			productName = RustSample;
+			productReference = 9C7986821B4949900070BE80 /* RustSample.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9C7986961B4949900070BE80 /* RustSampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C7986A41B4949910070BE80 /* Build configuration list for PBXNativeTarget "RustSampleTests" */;
+			buildPhases = (
+				9C7986931B4949900070BE80 /* Sources */,
+				9C7986941B4949900070BE80 /* Frameworks */,
+				9C7986951B4949900070BE80 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C7986991B4949900070BE80 /* PBXTargetDependency */,
+			);
+			name = RustSampleTests;
+			productName = RustSampleTests;
+			productReference = 9C7986971B4949900070BE80 /* RustSampleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C79867A1B4949900070BE80 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = kennytm;
+				TargetAttributes = {
+					9C7986811B4949900070BE80 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					9C7986961B4949900070BE80 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 9C7986811B4949900070BE80;
+					};
+				};
+			};
+			buildConfigurationList = 9C79867D1B4949900070BE80 /* Build configuration list for PBXProject "RustSample" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9C7986791B4949900070BE80;
+			productRefGroup = 9C7986831B4949900070BE80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C7986811B4949900070BE80 /* RustSample */,
+				9C7986961B4949900070BE80 /* RustSampleTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C7986801B4949900070BE80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C79868D1B4949900070BE80 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C7986951B4949900070BE80 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C79867E1B4949900070BE80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C5B50A71B4953010034773C /* RustRegex.m in Sources */,
+				9C79868A1B4949900070BE80 /* ViewController.swift in Sources */,
+				9C7986881B4949900070BE80 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C7986931B4949900070BE80 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C79869E1B4949910070BE80 /* RustSampleTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C7986991B4949900070BE80 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C7986811B4949900070BE80 /* RustSample */;
+			targetProxy = 9C7986981B4949900070BE80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9C79868B1B4949900070BE80 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C79868C1B4949900070BE80 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9C79869F1B4949910070BE80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9C7986A01B4949910070BE80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9C7986A21B4949910070BE80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = RustSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/kennytm/XCodeProjects/rust-ios-android/sample/cargo",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RustSample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9C7986A31B4949910070BE80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				INFOPLIST_FILE = RustSample/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/kennytm/XCodeProjects/rust-ios-android/sample/cargo",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RustSample-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		9C7986A51B4949910070BE80 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RustSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RustSample.app/RustSample";
+			};
+			name = Debug;
+		};
+		9C7986A61B4949910070BE80 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RustSampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RustSample.app/RustSample";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C79867D1B4949900070BE80 /* Build configuration list for PBXProject "RustSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C79869F1B4949910070BE80 /* Debug */,
+				9C7986A01B4949910070BE80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C7986A11B4949910070BE80 /* Build configuration list for PBXNativeTarget "RustSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C7986A21B4949910070BE80 /* Debug */,
+				9C7986A31B4949910070BE80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C7986A41B4949910070BE80 /* Build configuration list for PBXNativeTarget "RustSampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C7986A51B4949910070BE80 /* Debug */,
+				9C7986A61B4949910070BE80 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C79867A1B4949900070BE80 /* Project object */;
+}
