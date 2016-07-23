@@ -3,28 +3,22 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.android.tools.build:gradle:2.1.2'
     }
 }
 
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion '22.0.1'
+    compileSdkVersion 24
+    buildToolsVersion '24.0.1'
 
     defaultConfig {
-        applicationId 'kennytm.rust_sample'
-        minSdkVersion 16
-        targetSdkVersion 19
+        applicationId 'kennytm.rustsample'
+        minSdkVersion 15
+        targetSdkVersion 24
         versionCode 1
-        versionName '0.0.1'
-    }
-
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
+        versionName '0.1.0'
     }
 }
 

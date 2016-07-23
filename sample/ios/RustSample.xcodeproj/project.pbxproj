@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C5B509F1B494FD70034773C /* libsample-release.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5B509E1B494FD70034773C /* libsample-release.a */; };
 		9C5B50A71B4953010034773C /* RustRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C5B50A61B4953010034773C /* RustRegex.m */; };
 		9C7986881B4949900070BE80 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7986871B4949900070BE80 /* AppDelegate.swift */; };
 		9C79868A1B4949900070BE80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7986891B4949900070BE80 /* ViewController.swift */; };
 		9C79868D1B4949900070BE80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C79868B1B4949900070BE80 /* Main.storyboard */; };
 		9C79869E1B4949910070BE80 /* RustSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79869D1B4949910070BE80 /* RustSampleTests.swift */; };
+		9CECA3AF1D438137007D61AF /* libsample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CECA3AE1D438137007D61AF /* libsample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,7 +26,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9C5B509E1B494FD70034773C /* libsample-release.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libsample-release.a"; path = "../cargo/libsample-release.a"; sourceTree = "<group>"; };
 		9C5B50A11B4950E80034773C /* rust_regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = rust_regex.h; path = ../cargo/src/rust_regex.h; sourceTree = "<group>"; };
 		9C5B50A31B4952A60034773C /* RustSample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RustSample-Bridging-Header.h"; sourceTree = "<group>"; };
 		9C5B50A61B4953010034773C /* RustRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RustRegex.m; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		9C7986971B4949900070BE80 /* RustSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RustSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C79869C1B4949910070BE80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C79869D1B4949910070BE80 /* RustSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustSampleTests.swift; sourceTree = "<group>"; };
+		9CECA3AE1D438137007D61AF /* libsample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsample.a; path = ../cargo/target/universal/release/libsample.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C5B509F1B494FD70034773C /* libsample-release.a in Frameworks */,
+				9CECA3AF1D438137007D61AF /* libsample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,9 +62,9 @@
 		9C7986791B4949900070BE80 = {
 			isa = PBXGroup;
 			children = (
+				9CECA3AE1D438137007D61AF /* libsample.a */,
 				9C5B50A31B4952A60034773C /* RustSample-Bridging-Header.h */,
 				9C5B50A11B4950E80034773C /* rust_regex.h */,
-				9C5B509E1B494FD70034773C /* libsample-release.a */,
 				9C7986841B4949900070BE80 /* RustSample */,
 				9C79869A1B4949900070BE80 /* RustSampleTests */,
 				9C7986831B4949900070BE80 /* Products */,
@@ -161,6 +161,7 @@
 		9C79867A1B4949900070BE80 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = kennytm;
 				TargetAttributes = {
@@ -254,26 +255,11 @@
 		9C79869F1B4949910070BE80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -281,14 +267,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -299,35 +278,14 @@
 		9C7986A01B4949910070BE80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -342,11 +300,10 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/kennytm/XCodeProjects/rust-ios-android/sample/cargo",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RustSample-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -358,7 +315,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/kennytm/XCodeProjects/rust-ios-android/sample/cargo",
+					"$(PROJECT_DIR)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RustSample-Bridging-Header.h";
@@ -371,10 +328,6 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = RustSampleTests/Info.plist;

@@ -1,4 +1,4 @@
-package kennytm.rust_sample;
+package kennytm.rustsample;
 
 import android.app.Activity;
 import android.os.Bundle;

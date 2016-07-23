@@ -1,18 +1,33 @@
-# Compiled files
-*.o
-*.so
-*.rlib
-*.dll
-
-# Executables
-*.exe
-
 .DS_Store
 *.swp
-*.gz
-*.xz
+
+# NDK
 NDK/
-build-*/
-cargo/
-rustc-*/
 cargo-config.toml
+
+# Rust
+target/
+Cargo.lock
+
+# Android
+build/
+.idea/
+.gradle/
+*.iml
+local.properties
+
+# iOS
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.xcworkspace
+!default.xcworkspace
+xcuserdata
+profile
+*.moved-aside
+DerivedData

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kennytm.rust_sample">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="kennytm.rustsample">
     <application android:label="Rust Sample" android:icon="@android:mipmap/sym_def_app_icon" android:allowBackup="false">
-        <activity android:name="RustSampleActivity" android:label="Rust Sample">
+        <activity android:name=".RustSampleActivity" android:label="Rust Sample">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

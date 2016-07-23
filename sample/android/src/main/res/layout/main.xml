@@ -20,17 +20,20 @@
         android:layout_height="wrap_content"
         android:text="Text"
         android:id="@+id/textLabel"
-        android:layout_below="@+id/regexLabel"
-        android:layout_alignLeft="@+id/regexLabel"
-        android:layout_alignStart="@+id/regexLabel"
+        android:layout_below="@id/regexLabel"
+        android:layout_alignLeft="@id/regexLabel"
+        android:layout_alignStart="@id/regexLabel"
         android:layout_marginTop="45dp"/>
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="\\d+"
         android:id="@+id/regexField"
-        android:layout_alignBottom="@+id/regexLabel"
-        android:layout_toRightOf="@+id/regexLabel"
+        android:layout_alignBottom="@id/regexLabel"
+        android:layout_toRightOf="@id/regexLabel"
+        android:layout_toEndOf="@id/regexLabel"
         android:layout_marginLeft="35dp"
         android:layout_marginStart="35dp"
         android:layout_alignParentRight="true"
@@ -41,19 +44,21 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="text"
+        android:text="abc123"
         android:id="@+id/textField"
-        android:layout_alignBottom="@+id/textLabel"
-        android:layout_alignLeft="@+id/regexField"
-        android:layout_alignStart="@+id/regexField"
-        android:layout_alignRight="@+id/regexField"
-        android:layout_alignEnd="@+id/regexField"/>
+        android:layout_alignBottom="@id/textLabel"
+        android:layout_alignLeft="@id/regexField"
+        android:layout_alignStart="@id/regexField"
+        android:layout_alignRight="@id/regexField"
+        android:layout_alignEnd="@id/regexField"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Check"
         android:id="@+id/checkButton"
-        android:layout_below="@+id/textField"
+        android:layout_below="@id/textField"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:onClick="check"/>
