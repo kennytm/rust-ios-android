@@ -21,7 +21,7 @@ if [ -x "$MAKER" ]; then
         "$MAKER" --arch $ARCH --install-dir $ARCH
     done
 else
-    printf '\e[91mPlease install `android-ndk` r12!\e[0m\n\n'
+    printf '\e[91mPlease install `android-ndk` r12b!\e[0m\n\n'
     printf '$ brew install android-ndk\n'
     exit 1
 fi

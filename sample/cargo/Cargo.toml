@@ -10,4 +10,4 @@ jni-sys = "0.1.0"
 
 [lib]
 name = "sample"
-crate-type = ["staticlib", "dylib"]
+crate-type = ["staticlib", "cdylib"]

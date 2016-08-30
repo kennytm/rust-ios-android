@@ -1,5 +1,5 @@
 import XCTest
-import RustSample
+@testable import RustSample
 
 class RustSampleTests: XCTestCase {
     func testFind() {
