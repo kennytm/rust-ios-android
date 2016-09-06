@@ -3,9 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0-beta3'
-        // note: using beta since 2.1.3 does not support gradle 3.0
-        // see http://stackoverflow.com/q/39034655
+        classpath 'com.android.tools.build:gradle:2.1.0'
     }
 }
 
@@ -24,3 +22,6 @@ android {
     }
 }
 
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.14.1'
+}
