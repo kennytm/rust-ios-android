@@ -20,26 +20,36 @@ Setup
 
 1. Get Xcode, and install the command line tools.
 
-2. Get Android NDK r12b. We recommend installing it with [homebrew](http://brew.sh/).
+    ```sh
+    xcode-select --install
+    ```
+
+* Get Android NDK r12b. We recommend installing it with [homebrew](http://brew.sh/).
 
     ```sh
     brew install android-ndk
     ```
 
-3. Create the standalone NDKs.
+* Create the standalone NDKs.
 
     ```sh
     ./create-ndk-standalone.sh
     ```
 
-4. Download [rustup](https://www.rustup.rs/). We will use this to setup Rust for
+* Download [rustup](https://www.rustup.rs/). We will use this to setup Rust for
    cross-compiling.
 
     ```sh
     curl https://sh.rustup.rs -sSf | sh
     ```
 
-5. Download targets for iOS and Android.
+* Install the stable build of rust.
+
+    ```sh
+    rustup install stable
+    ```
+
+* Download targets for iOS and Android.
 
     ```sh
     # Note: you need *all* five targets
@@ -54,15 +64,14 @@ Setup
     rustup target add i686-linux-android
     ```
 
-6. Copy the content of `cargo-config.toml` (consists of linker information of
+* Copy the content of `cargo-config.toml` (consists of linker information of
    the Android targets) to `~/.cargo/config`
 
     ```sh
     cat cargo-config.toml >> ~/.cargo/config
     ```
 
-
-7. Install cargo-lipo to generate the iOS universal library.
+* Install cargo-lipo to generate the iOS universal library.
 
     ```sh
     cargo install cargo-lipo
@@ -131,4 +140,3 @@ does not contain proper error checking.)
         `target/i686-linux-android/release/lib???.so` | `src/main/jniLibs/x86/lib???.so`
 
     * Don't forget to ensure the JNI glue between Rust and Java are compatible.
-
