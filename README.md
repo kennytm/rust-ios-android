@@ -124,7 +124,7 @@ does not contain proper error checking.)
 
     ```sh
     cd sample/android
-    gradle assembleRelease
+    ./gradlew assembleRelease
     cd ../..
     ```
 
