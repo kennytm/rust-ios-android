@@ -3,8 +3,8 @@
 set -euo pipefail
 
 ## Create an Android NDK Standalone toolchain.
-
-MAKER=/usr/local/Cellar/android-ndk/r12/build/tools/make_standalone_toolchain.py
+PREFIX=$(brew --prefix)
+MAKER="${PREFIX}/Cellar/android-ndk/r12b/build/tools/make_standalone_toolchain.py"
 
 if [ -d NDK ]; then
     exit 0
