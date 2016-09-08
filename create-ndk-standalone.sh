@@ -2,29 +2,34 @@
 
 set -euo pipefail
 
-## Create an Android NDK Standalone toolchain.
-PREFIX=$(brew --prefix)
-MAKER="${PREFIX}/Cellar/android-ndk/r12b/build/tools/make_standalone_toolchain.py"
-
 if [ -d NDK ]; then
     exit 0
 fi
 
-echo 'Creating standalone NDK...'
+PREFIX=$(brew --prefix)
+TOOL=build/tools/make_standalone_toolchain.py
+
+
+for candidate in "${PREFIX}/Cellar/android-ndk"/*/"$TOOL"
+do
+  MAKER="$candidate"                      # Pick last one in ASCIIbetical order
+done
+
+if [ -x "$MAKER" ]; then
+  echo 'Creating standalone NDK...'
+else
+  printf '\e[91mPlease install `android-ndk` r12b!\e[0m\n\n'
+  printf '$ brew install android-ndk\n'
+  exit 1
+fi
 
 mkdir NDK
 cd NDK
 
-if [ -x "$MAKER" ]; then
-    for ARCH in arm64 arm x86; do
-        echo "($ARCH)..."
-        "$MAKER" --arch $ARCH --install-dir $ARCH
-    done
-else
-    printf '\e[91mPlease install `android-ndk` r12b!\e[0m\n\n'
-    printf '$ brew install android-ndk\n'
-    exit 1
-fi
+for ARCH in arm64 arm x86; do
+    echo "($ARCH)..."
+    "$MAKER" --arch $ARCH --install-dir $ARCH
+done
 
 echo 'Updating cargo-config.toml...'
 
