@@ -3,24 +3,19 @@
 set -euo pipefail
 
 if [ -d NDK ]; then
+    printf '\e[33;1mStandalone NDK already exists... Delete the NDK folder to make a new one.\e[0m\n\n'
+    printf '$ rm -rf NDK\n'
     exit 0
 fi
 
-PREFIX=$(brew --prefix)
-TOOL=build/tools/make_standalone_toolchain.py
-
-
-for candidate in "${PREFIX}/Cellar/android-ndk"/*/"$TOOL"
-do
-  MAKER="$candidate"                      # Pick last one in ASCIIbetical order
-done
+MAKER="$(brew --prefix android-ndk)/build/tools/make_standalone_toolchain.py"
 
 if [ -x "$MAKER" ]; then
-  echo 'Creating standalone NDK...'
+    echo 'Creating standalone NDK...'
 else
-  printf '\e[91mPlease install `android-ndk` r12b!\e[0m\n\n'
-  printf '$ brew install android-ndk\n'
-  exit 1
+    printf '\e[91;1mPlease install `android-ndk`!\e[0m\n\n'
+    printf '$ brew install android-ndk\n'
+    exit 1
 fi
 
 mkdir NDK

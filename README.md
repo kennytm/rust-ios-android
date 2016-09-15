@@ -24,7 +24,7 @@ Setup
     xcode-select --install
     ```
 
-* Get Android NDK r12b. We recommend installing it with [homebrew](http://brew.sh/).
+* Get Android NDK. We recommend installing it with [homebrew](http://brew.sh/).
 
     ```sh
     brew install android-ndk
