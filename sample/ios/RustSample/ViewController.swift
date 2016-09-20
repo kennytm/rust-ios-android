@@ -5,7 +5,7 @@ class ViewController: UIViewController {
     @IBOutlet private var textField : UITextField!
     
     @IBAction func checkRegex() {
-        let regex = RustRegex(regex: regexField.text)
+        let regex = RustRegex(regex: regexField.text)!
         let position = regex.find(textField.text)
         
         let message = (position < 0) ? "Not found" : "Found at \(position)"
