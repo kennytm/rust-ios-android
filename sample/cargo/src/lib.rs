@@ -1,5 +1,4 @@
 extern crate regex;
-extern crate jni_sys;
 
 use regex::Regex;
 
@@ -56,7 +55,7 @@ pub extern "C" fn rust_regex_find(regex: *const Regex, text: *const c_char) -> c
 
     match regex.find(text) {
         None => -1,
-        Some((start, _)) => start as c_int,
+        Some(m) => m.start() as c_int,
     }
 }
 
@@ -65,31 +64,28 @@ pub extern "C" fn rust_regex_find(regex: *const Regex, text: *const c_char) -> c
 #[cfg(target_os="android")]
 #[allow(non_snake_case)]
 pub mod android {
+    extern crate jni;
+
     use super::*;
-    use jni_sys::*;
+    use self::jni::JNIEnv;
+    use self::jni::objects::{JClass, JString};
+    use self::jni::sys::{jint, jlong};
     use regex::Regex;
-    use std::ptr::null_mut;
 
     #[no_mangle]
-    pub unsafe extern "C" fn Java_kennytm_rustsample_RustSampleActivity_regexCreate(env: *mut JNIEnv, _: jclass, java_pattern: jstring) -> jlong {
-        let ref java = **env;
-        let pattern = (java.GetStringUTFChars)(env, java_pattern, null_mut());
-        let regex = rust_regex_create(pattern);
-        (java.ReleaseStringUTFChars)(env, java_pattern, pattern);
-        regex as jlong
+    pub unsafe extern "C" fn Java_kennytm_rustsample_RustSampleActivity_regexCreate(env: JNIEnv, _: JClass, java_pattern: JString) -> jlong {
+        let pattern = env.get_string(java_pattern).expect("invalid pattern string");
+        rust_regex_create(pattern.as_ptr()) as jlong
     }
 
     #[no_mangle]
-    pub unsafe extern "C" fn Java_kennytm_rustsample_RustSampleActivity_regexFind(env: *mut JNIEnv, _: jclass, regex_ptr: jlong, java_text: jstring) -> jint {
-        let ref java = **env;
-        let text = (java.GetStringUTFChars)(env, java_text, null_mut());
-        let res = rust_regex_find(regex_ptr as *const Regex, text);
-        (java.ReleaseStringUTFChars)(env, java_text, text);
-        res
+    pub unsafe extern "C" fn Java_kennytm_rustsample_RustSampleActivity_regexFind(env: JNIEnv, _: JClass, regex_ptr: jlong, java_text: JString) -> jint {
+        let text = env.get_string(java_text).expect("invalid text string");
+        rust_regex_find(regex_ptr as *const Regex, text.as_ptr())
     }
 
     #[no_mangle]
-    pub unsafe extern "C" fn Java_kennytm_rustsample_RustSampleActivity_regexDestroy(_: *mut JNIEnv, _: jclass, regex_ptr: jlong) {
+    pub unsafe extern "C" fn Java_kennytm_rustsample_RustSampleActivity_regexDestroy(_: JNIEnv, _: JClass, regex_ptr: jlong) {
         let regex = regex_ptr as *mut Regex;
         rust_regex_destroy(regex)
     }

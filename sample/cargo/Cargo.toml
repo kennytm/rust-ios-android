@@ -1,12 +1,14 @@
 [package]
 name = "sample"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["kennytm <kennytm@gmail.com>"]
 description = "Example static library project built for iOS and Android"
 
 [dependencies]
-regex = "0.1.73"
-jni-sys = "0.1.0"
+regex = "0.2.1"
+
+[target.'cfg(target_os="android")'.dependencies]
+jni = "0.3.1"
 
 [lib]
 name = "sample"
