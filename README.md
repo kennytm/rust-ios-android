@@ -112,7 +112,7 @@ does not contain proper error checking.)
     cd ../..
     ```
 
-    When you create an Xcode project yourself, note thefollowing points:
+    When you create an Xcode project yourself, note the following points:
 
     * Add the C header `rust_regex.h` to allow using the Rust functions from C.
     * Copy `target/universal/release/lib???.a` to the project. You may need
