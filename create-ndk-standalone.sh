@@ -8,7 +8,8 @@ if [ -d NDK ]; then
     exit 0
 fi
 
-MAKER="$(brew --prefix android-ndk)/build/tools/make_standalone_toolchain.py"
+NDK_VERSION=$(brew cask info android-ndk | head -1 | cut -d' ' -f 2)
+MAKER="/usr/local/opt/android-ndk/android-ndk-r${NDK_VERSION}/build/tools/make_standalone_toolchain.py"
 
 if [ -x "$MAKER" ]; then
     echo 'Creating standalone NDK...'
