@@ -4,9 +4,9 @@ rust-ios-android
 Example project for building a library for iOS + Android in Rust. Mac OS X is
 required (because iOS).
 
-* ✓ Rust 1.12 – 1.14
-* ✓ Android 4.1 – 7.0 (API 16–25)
-* ✓ iOS 7.0 – 10.2
+* ✓ Rust 1.14 – 1.17
+* ✓ Android 4.1 – 7.1 (API 16–25)
+* ✓ iOS 7.0 – 10.3
 
 <small>(probably works on earlier versions but I don't bother to check 😛)</small>
 
@@ -27,7 +27,7 @@ Setup
 * Get Android NDK. We recommend installing it with [homebrew](http://brew.sh/).
 
     ```sh
-    brew install android-ndk
+    brew cask install android-ndk
     ```
 
 * Create the standalone NDKs.
@@ -53,15 +53,8 @@ Setup
 
     ```sh
     # Note: you need *all* five targets
-    rustup target add aarch64-apple-ios
-    rustup target add armv7-apple-ios
-    rustup target add armv7s-apple-ios
-    rustup target add x86_64-apple-ios
-    rustup target add i386-apple-ios
-
-    rustup target add aarch64-linux-android
-    rustup target add armv7-linux-androideabi
-    rustup target add i686-linux-android
+    rustup target add aarch64-apple-ios armv7-apple-ios armv7s-apple-ios x86_64-apple-ios i386-apple-ios
+    rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android
     ```
 
 * Copy the content of `cargo-config.toml` (consists of linker information of

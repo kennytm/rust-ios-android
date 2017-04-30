@@ -5,10 +5,10 @@ authors = ["kennytm <kennytm@gmail.com>"]
 description = "Example static library project built for iOS and Android"
 
 [dependencies]
-regex = "0.2.1"
+regex = "0.2"
 
 [target.'cfg(target_os="android")'.dependencies]
-jni = "0.3.1"
+jni = "0.4"
 
 [lib]
 name = "sample"
