@@ -15,7 +15,7 @@ if [ -x "$MAKER" ]; then
     echo 'Creating standalone NDK...'
 else
     printf '\e[91;1mPlease install `android-ndk`!\e[0m\n\n'
-    printf '$ brew install android-ndk\n'
+    printf '$ brew cask install android-ndk\n'
     exit 1
 fi
 
