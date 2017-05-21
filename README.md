@@ -1,10 +1,12 @@
 rust-ios-android
 ================
 
-Example project for building a library for iOS + Android in Rust. Mac OS X is
-required (because iOS).
+![Build status](https://travis-ci.org/kennytm/rust-ios-android.svg?branch=master)
 
-* ✓ Rust 1.14 – 1.17
+Example project for building a library for iOS + Android in Rust. macOS is
+required for iOS development.
+
+* ✓ Rust 1.14 – 1.19
 * ✓ Android 4.1 – 7.1 (API 16–25)
 * ✓ iOS 7.0 – 10.3
 
@@ -18,53 +20,58 @@ You may also want to check <https://github.com/Geal/rust_on_mobile>.
 Setup
 -----
 
-1. Get Xcode, and install the command line tools.
+1. Install the common build tools like C compiler and linker. On macOS, get
+    Xcode, and install the command line tools.
 
     ```sh
     xcode-select --install
     ```
 
-* Get Android NDK. We recommend installing it with [homebrew](http://brew.sh/).
+2. Get Android NDK. We recommend installing it via Android Studio or
+    `sdkmanager`:
 
     ```sh
-    brew cask install android-ndk
+    sdkmanager --verbose ndk-bundle
     ```
 
-* Create the standalone NDKs.
+    Otherwise, please define the environment variable `$ANDROID_NDK_HOME` to the
+    path of the current version of Android NDK.
+
+    ```sh
+    export ANDROID_NDK_HOME='/usr/local/opt/android-ndk/android-ndk-r14b/'
+    ```
+
+3. Create the standalone NDKs.
 
     ```sh
     ./create-ndk-standalone.sh
     ```
 
-* Download [rustup](https://www.rustup.rs/). We will use this to setup Rust for
+4. Download [rustup](https://www.rustup.rs/). We will use this to setup Rust for
    cross-compiling.
 
     ```sh
     curl https://sh.rustup.rs -sSf | sh
     ```
 
-* Install the stable build of rust.
+5. Download targets for iOS and Android.
 
     ```sh
-    rustup install stable
-    ```
-
-* Download targets for iOS and Android.
-
-    ```sh
-    # Note: you need *all* five targets
+    # iOS. Note: you need *all* five targets
     rustup target add aarch64-apple-ios armv7-apple-ios armv7s-apple-ios x86_64-apple-ios i386-apple-ios
+
+    # Android.
     rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android
     ```
 
-* Copy the content of `cargo-config.toml` (consists of linker information of
+6. Copy the content of `cargo-config.toml` (consists of linker information of
    the Android targets) to `~/.cargo/config`
 
     ```sh
     cat cargo-config.toml >> ~/.cargo/config
     ```
 
-* Install cargo-lipo to generate the iOS universal library.
+7. Install cargo-lipo to generate the iOS universal library.
 
     ```sh
     cargo install cargo-lipo
@@ -101,7 +108,7 @@ does not contain proper error checking.)
 
     ```sh
     cd sample/ios
-    xctool -configuration Release -scheme RustSample
+    xcodebuild -configuration Release -scheme RustSample | xcpretty
     cd ../..
     ```
 
@@ -109,9 +116,10 @@ does not contain proper error checking.)
 
     * Add the C header `rust_regex.h` to allow using the Rust functions from C.
     * Copy `target/universal/release/lib???.a` to the project. You may need
-      to modify LIBRARY_SEARCH_PATHS to include the folder of the `*.a` file.
-    * Note that cargo-lipo does not generate bitcode yet. You must set
-      ENABLE_BITCODE to NO. (See also <http://stackoverflow.com/a/38488617>)
+      to modify `LIBRARY_SEARCH_PATHS` to include the folder of the `*.a` file.
+    * Note that `cargo-lipo` does not generate bitcode yet. You must set
+      `ENABLE_BITCODE` to `NO`. (See also <http://stackoverflow.com/a/38488617>)
+    * You need to link to `libresolv.tbd`.
 
 5. Build the Android project.
 

@@ -3,6 +3,7 @@ name = "sample"
 version = "0.1.1"
 authors = ["kennytm <kennytm@gmail.com>"]
 description = "Example static library project built for iOS and Android"
+publish = false
 
 [dependencies]
 regex = "0.2"
