@@ -1,34 +1,46 @@
 #!/bin/sh
 
-set -euo pipefail
+set -eu
 
 if [ -d NDK ]; then
-    printf '\e[33;1mStandalone NDK already exists... Delete the NDK folder to make a new one.\e[0m\n\n'
-    printf '$ rm -rf NDK\n'
+    printf '\033[33;1mStandalone NDK already exists... Delete the NDK folder to make a new one.\033[0m\n\n'
+    printf '  $ rm -rf NDK\n'
     exit 0
 fi
 
-NDK_VERSION=$(brew cask info android-ndk | head -1 | cut -d' ' -f 2)
-MAKER="/usr/local/opt/android-ndk/android-ndk-r${NDK_VERSION}/build/tools/make_standalone_toolchain.py"
+if [ ! -d "${ANDROID_SDK_ROOT-}" ]; then
+    ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+fi
+if [ ! -d "${ANDROID_HOME-}" ]; then
+    ANDROID_HOME="$ANDROID_SDK_ROOT"
+fi
+if [ ! -d "${ANDROID_NDK_HOME-}" ]; then
+    ANDROID_NDK_HOME="$ANDROID_HOME/ndk-bundle"
+fi
+MAKER="${ANDROID_NDK_HOME}/build/tools/make_standalone_toolchain.py"
 
 if [ -x "$MAKER" ]; then
     echo 'Creating standalone NDK...'
 else
-    printf '\e[91;1mPlease install `android-ndk`!\e[0m\n\n'
-    printf '$ brew cask install android-ndk\n'
+    printf '\033[91;1mPlease install Android NDK!\033[0m\n\n'
+    printf '  $ sdkmanager ndk-bundle\n\n'
+    printf "\033[33;1mnote\033[0m: file \033[34;4m$MAKER\033[0m not found.\n"
+    printf 'If you have installed the NDK in non-standard location, please define the \033[1m$ANDROID_NDK_HOME\033[0m variable.\n'
     exit 1
 fi
 
 mkdir NDK
-cd NDK
 
-for ARCH in arm64 arm x86; do
-    echo "($ARCH)..."
-    "$MAKER" --arch $ARCH --install-dir $ARCH
-done
+create_ndk() {
+    echo "($1)..."
+    "$MAKER" --unified-headers --api "$2" --arch "$1" --install-dir "NDK/$1"
+}
+
+create_ndk arm64 21
+create_ndk arm 9
+create_ndk x86 9
 
 echo 'Updating cargo-config.toml...'
 
-cd ..
 sed 's|$PWD|'"${PWD}"'|g' cargo-config.toml.template > cargo-config.toml
 
