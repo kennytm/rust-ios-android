@@ -12,6 +12,7 @@
 		9C79868A1B4949900070BE80 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7986891B4949900070BE80 /* ViewController.swift */; };
 		9C79868D1B4949900070BE80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C79868B1B4949900070BE80 /* Main.storyboard */; };
 		9C79869E1B4949910070BE80 /* RustSampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C79869D1B4949910070BE80 /* RustSampleTests.swift */; };
+		9CC492AE1ED202E5007DFECF /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CC492AD1ED202E5007DFECF /* libresolv.tbd */; };
 		9CECA3AF1D438137007D61AF /* libsample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CECA3AE1D438137007D61AF /* libsample.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		9C7986971B4949900070BE80 /* RustSampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RustSampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C79869C1B4949910070BE80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C79869D1B4949910070BE80 /* RustSampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RustSampleTests.swift; sourceTree = "<group>"; };
+		9CC492AD1ED202E5007DFECF /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		9CECA3AE1D438137007D61AF /* libsample.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsample.a; path = ../cargo/target/universal/release/libsample.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CC492AE1ED202E5007DFECF /* libresolv.tbd in Frameworks */,
 				9CECA3AF1D438137007D61AF /* libsample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,6 +71,7 @@
 				9C7986841B4949900070BE80 /* RustSample */,
 				9C79869A1B4949900070BE80 /* RustSampleTests */,
 				9C7986831B4949900070BE80 /* Products */,
+				9CC492AC1ED202E5007DFECF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,6 +119,14 @@
 				9C79869C1B4949910070BE80 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9CC492AC1ED202E5007DFECF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9CC492AD1ED202E5007DFECF /* libresolv.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
