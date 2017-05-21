@@ -1,0 +1,78 @@
+sudo: false
+language: rust
+
+dist: trusty
+osx_image: xcode8.3
+
+os:
+  - linux
+  - osx
+
+rust:
+  - 1.14.0
+  - 1.17.0
+  - nightly
+
+env:
+  # Get revision number from https://dl.google.com/android/repository/repository2-1.xml
+  - ANDROID_SDK_VERSION=3952940
+
+before_install:
+  - >
+    is_mac() {
+      [ "$TRAVIS_OS_NAME" = 'osx' ];
+    };
+    PKG_OS="$TRAVIS_OS_NAME";
+    if is_mac; then
+      PKG_OS='darwin';
+    fi
+
+  - >
+    export ANDROID_HOME="${HOME}/android-sdk";
+    export PATH=$PATH:"${ANDROID_HOME}/tools/bin";
+    mkdir $ANDROID_HOME
+
+install:
+  # SDK Tools.
+  - >
+    curl -o sdk.zip "https://dl.google.com/android/repository/sdk-tools-${PKG_OS}-${ANDROID_SDK_VERSION}.zip" &&
+    unzip -q sdk.zip -d $ANDROID_HOME;
+
+  # Android SDK and NDK
+  - >
+    yes | sdkmanager --licenses > /dev/null &&
+    sdkmanager --verbose 'build-tools;25.0.3' 'platforms;android-25' 'ndk-bundle'
+
+  # Rust targets
+  - rustup target add aarch64-apple-ios armv7-apple-ios armv7s-apple-ios x86_64-apple-ios i386-apple-ios
+  - rustup target add aarch64-linux-android armv7-linux-androideabi i686-linux-android
+  - if is_mac; then cargo install cargo-lipo; fi
+
+script:
+  # Create standalone NDKs
+  - >
+    ./create-ndk-standalone.sh &&
+    mkdir ./.cargo &&
+    cp cargo-config.toml ./.cargo/config || travis_terminate 1
+
+  - >
+    cd sample/cargo &&
+    if is_mac; then cargo lipo --release; fi &&
+    cargo build --target aarch64-linux-android --release &&
+    cargo build --target armv7-linux-androideabi --release &&
+    cargo build --target i686-linux-android --release &&
+    cd ../.. || travis_terminate 1
+
+  - >
+    if is_mac; then
+      cd sample/ios &&
+      xcodebuild -configuration Debug -scheme RustSample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty &&
+      xcodebuild -configuration Debug -scheme RustSample -sdk iphonesimulator test -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.3' | xcpretty &&
+      cd ../..
+    fi
+
+  - >
+    export TERM=dumb;
+    cd sample/android &&
+    ./gradlew assembleDebug &&
+    cd ../..
