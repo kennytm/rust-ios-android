@@ -7,7 +7,7 @@ Example project for building a library for iOS + Android in Rust. macOS is
 required for iOS development.
 
 * ✓ Rust 1.14 – 1.19
-* ✓ Android 4.1 – 7.1 (API 16–25)
+* ✓ Android 4.1 – 8.0 (API 16–26)
 * ✓ iOS 7.0 – 10.3
 
 <small>(probably works on earlier versions but I don't bother to check 😛)</small>

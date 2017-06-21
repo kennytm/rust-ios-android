@@ -11,6 +11,8 @@ os:
 rust:
   - 1.14.0
   - 1.17.0
+  - 1.18.0
+  - beta
   - nightly
 
 env:
@@ -41,7 +43,7 @@ install:
   # Android SDK and NDK
   - >
     yes | sdkmanager --licenses > /dev/null &&
-    sdkmanager --verbose 'build-tools;25.0.3' 'platforms;android-25' 'ndk-bundle'
+    sdkmanager --verbose 'build-tools;26.0.0' 'platforms;android-26' 'ndk-bundle'
 
   # Rust targets
   - rustup target add aarch64-apple-ios armv7-apple-ios armv7s-apple-ios x86_64-apple-ios i386-apple-ios
