@@ -1,12 +1,12 @@
 rust-ios-android
 ================
 
-![Build status](https://travis-ci.org/kennytm/rust-ios-android.svg?branch=master)
+[![Build status](https://travis-ci.org/kennytm/rust-ios-android.svg?branch=master)](https://travis-ci.org/kennytm/rust-ios-android/)
 
 Example project for building a library for iOS + Android in Rust. macOS is
 required for iOS development.
 
-* ✓ Rust 1.14 – 1.19
+* ✓ Rust 1.14 – 1.20
 * ✓ Android 4.1 – 8.0 (API 16–26)
 * ✓ iOS 7.0 – 10.3
 
@@ -84,7 +84,8 @@ You use use the `sample/` project as an example. (Note that the sample itself
 does not contain proper error checking.)
 
 1. Write the library and expose a C interface. See [the FFI chapter in the Rust
-   Book](http://doc.rust-lang.org/book/ffi.html) for an introduction.
+   Book](https://doc.rust-lang.org/book/first-edition/ffi.html) for an
+   introduction.
 
 2. Expose the Java interface with JNI when `target_os="android"`.
 
