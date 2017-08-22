@@ -11,7 +11,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion '26'
+    buildToolsVersion '26.0.1'
 
     defaultConfig {
         applicationId 'kennytm.rustsample'
@@ -23,5 +23,5 @@ android {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.0'
+    gradleVersion = '4.1'
 }
