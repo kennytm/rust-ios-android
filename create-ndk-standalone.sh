@@ -33,7 +33,7 @@ mkdir NDK
 
 create_ndk() {
     echo "($1)..."
-    "$MAKER" --unified-headers --api "$2" --arch "$1" --install-dir "NDK/$1"
+    "$MAKER" --api "$2" --arch "$1" --install-dir "NDK/$1"
 }
 
 create_ndk arm64 21

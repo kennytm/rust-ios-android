@@ -2,22 +2,27 @@ sudo: false
 language: rust
 
 dist: trusty
-osx_image: xcode8.3
+osx_image: xcode9.1
 
-os:
-  - linux
-  - osx
-
-rust:
-  - 1.15.1
-  - 1.17.0
-  - 1.19.0
-  - beta
-  - nightly
+jobs:
+  include:
+    - rust: 1.15.1
+      os: linux
+    - rust: 1.18.0
+      os: linux
+    - rust: 1.21.0
+      os: linux
+    - rust: 1.21.0
+      os: osx
+    - rust: beta
+      os: linux
+    - rust: nightly
+      os: linux
 
 env:
   # Get revision number from https://dl.google.com/android/repository/repository2-1.xml
-  - ANDROID_SDK_VERSION=3952940
+  # Look for the string 'sdk-tools-linux-'.
+  - ANDROID_SDK_VERSION=4333796
 
 before_install:
   - >
@@ -41,9 +46,9 @@ install:
     unzip -q sdk.zip -d $ANDROID_HOME;
 
   # Android SDK and NDK
-  - >
-    yes | sdkmanager --licenses > /dev/null &&
-    sdkmanager --verbose 'build-tools;26.0.1' 'platforms;android-26' 'ndk-bundle'
+  # Unfortunately we need to get rid of all output, otherwise it can easily fill up the 4 MB log limit
+  - yes | sdkmanager --licenses > /dev/null
+  - sdkmanager 'build-tools;27.0.0' 'platforms;android-27' 'ndk-bundle' > /dev/null
 
   # Rust targets
   - rustup target add aarch64-apple-ios armv7-apple-ios armv7s-apple-ios x86_64-apple-ios i386-apple-ios
@@ -69,7 +74,7 @@ script:
     if is_mac; then
       cd sample/ios &&
       xcodebuild -configuration Debug -scheme RustSample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty &&
-      xcodebuild -configuration Debug -scheme RustSample -sdk iphonesimulator test -destination 'platform=iOS Simulator,name=iPhone SE,OS=10.3.1' | xcpretty &&
+      xcodebuild -configuration Debug -scheme RustSample -sdk iphonesimulator test -destination 'platform=iOS Simulator,name=iPhone SE,OS=latest' | xcpretty &&
       cd ../..
     fi
 
