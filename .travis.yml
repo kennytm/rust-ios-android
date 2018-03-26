@@ -8,9 +8,9 @@ jobs:
   include:
     - rust: 1.16.0
       os: linux
-    - rust: stable
+    - rust: 1.24.1
       os: linux
-    - rust: stable
+    - rust: 1.24.1
       os: osx
     - rust: beta
       os: linux
